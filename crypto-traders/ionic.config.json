@@ -1,5 +1,5 @@
 {
-  "name": "Crypto Traders",
+  "name": "ionic-app-base",
   "integrations": {},
-  "type": "angular"
+  "type": "angular-standalone"
 }
