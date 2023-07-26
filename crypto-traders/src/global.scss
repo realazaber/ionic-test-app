@@ -55,10 +55,7 @@
     }
 
     .btn-secondary {
-      border-image: linear-gradient(225deg, #04e08a, #05cef2) 1;
-      border-radius: 0.375rem;
-
-      @apply bg-transparent;
+      @apply bg-transparent border-[#04e08a];
     }
 
     .btn-third {
