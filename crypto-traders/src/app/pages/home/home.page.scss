@@ -1,0 +1,11 @@
+#container {
+  background: url("/assets/images/dots.webp");
+
+  @apply flex flex-col justify-center items-center bg-black bg-repeat min-h-[90vh] sm:min-h-0 sm:h-auto;
+
+  #cta {
+    background: url("/assets/images/home/bg-logo.svg");
+
+    @apply mx-auto bg-top;
+  }
+}

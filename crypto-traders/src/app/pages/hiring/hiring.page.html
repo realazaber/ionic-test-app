@@ -1,0 +1,104 @@
+<ion-content
+  class="flex flex-col justify-center items-center w-full h-full md:h-auto bg-black"
+>
+  <!--Start Desktop-->
+  <div class="w-4/5 mx-auto md:block hidden">
+    <h1 class="text-4xl py-3">We’re Hiring</h1>
+    <div class="flex flex-row justify-center items-start bg-black pb-24">
+      <div class="w-1/3">
+        <ul>
+          <a
+            *ngFor="let job of jobs"
+            (click)="selectJob(job)"
+            class="cursor-pointer"
+          >
+            {{ job.title }}
+          </a>
+        </ul>
+      </div>
+      <div
+        class="flex flex-row border-[1px] border-[#2b2e31] rounded-md bg-secondary w-2/3"
+      >
+        <div>
+          <img
+            class="min-w-[92px] min-h-[420px]"
+            src="/assets/images/hiring/side-image.png"
+            alt="Side image"
+          />
+        </div>
+
+        <div class="py-8">
+          <div class="px-10 w-4/5">
+            <!-- Content specific to the selected job -->
+            <h1>{{ selectedJob?.title }}</h1>
+            <p class="my-5">{{ selectedJob?.description }}</p>
+            <ul *ngIf="selectedJob?.benefits">
+              <li *ngFor="let benefit of selectedJob.benefits">
+                {{ benefit }}
+              </li>
+            </ul>
+            <h2 class="my-3">
+              Skills Needed (Most Important to Least Important)
+            </h2>
+            <ul *ngIf="selectedJob?.skills">
+              <li *ngFor="let skill of selectedJob.skills">{{ skill }}</li>
+            </ul>
+          </div>
+
+          <!-- Common content at the bottom -->
+          <div class="mt-auto">
+            <hr class="w-full border-[1px] border-[#2b2e31]" />
+            <div class="flex px-10 py-5 justify-between">
+              <span class="w-3/5">
+                Contact us at
+                <a class="text-[#81EDBA] underline">kevin@xtrades.net</a> and
+                include information about your previous works and experience to
+                set up an interview.
+              </span>
+              <button class="btn btn-primary h-2/3 my-auto">
+                CONTACT US NOW
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Desktop-->
+
+  <!--Start Mobile-->
+  <div class="px-5 mt-14 md:hidden flex justify-center items-start">
+    <app-mobile-job [inputJobs]="jobs"></app-mobile-job>
+  </div>
+  <!--End Mobile-->
+</ion-content>
+<ion-footer class="bg-secondary hidden sm:block">
+  <div class="w-4/5 mx-auto py-5">
+    <div class="flex flex-row gap-8">
+      <div>
+        <span
+          >Billing & General Support <br /><strong
+            >hello@xtrades.net</strong
+          ></span
+        >
+      </div>
+      <div>
+        <span>
+          Los Angeles, CA 90028 <br /><strong>1-530-723-5499</strong>
+        </span>
+      </div>
+      <div><span>Terms & Conditions</span></div>
+      <div><span>Refund Policy</span></div>
+      <div><span>Privacy Policy</span></div>
+    </div>
+    <div class="flex justify-between w-full mt-8">
+      <span>© Copyright 2022 - Xtrades. All rights reserved.</span>
+      <div class="flex gap-3">
+        <img src="/assets/images/hiring/facebook.svg" alt="Facebook" />
+        <img src="/assets/images/hiring/twitter.svg" alt="Twitter" />
+        <img src="/assets/images/hiring/instagram.svg" alt="Instagram" />
+        <img src="/assets/images/hiring/linkedin.svg" alt="Linkedin" />
+      </div>
+    </div>
+  </div>
+</ion-footer>

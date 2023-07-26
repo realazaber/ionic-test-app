@@ -1,0 +1,100 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Font awesome */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  * {
+    @apply duration-300;
+  }
+
+  body {
+    @apply bg-black;
+
+    .btn {
+      @apply px-5 py-3 rounded-lg border-2 border-solid flex items-center sm:normal-case uppercase;
+    }
+
+    .btn-primary {
+      background: linear-gradient(116.59deg, #81edb9 16.87%, #c2f0ed 86.01%),
+        linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.4),
+          rgba(255, 255, 255, 0.4)
+        );
+
+      @apply text-black;
+    }
+
+    .btn-secondary {
+      @apply bg-transparent border-[#04e08a];
+    }
+
+    .btn-third {
+      @apply text-white bg-[#303236] border-[#6b6c6f];
+    }
+
+    a {
+      @apply hover:cursor-pointer;
+    }
+
+    h1,
+    h2 {
+      @apply font-bold;
+    }
+
+    h1 {
+      @apply text-xl;
+    }
+
+    h2 {
+      @apply text-base;
+    }
+
+    p,
+    span,
+    li {
+      @apply text-xs sm:text-sm text-[#b7b7b7];
+    }
+
+    li {
+      @apply list-disc list-inside my-1;
+    }
+
+    ul {
+      @apply flex flex-col justify-start items-start gap-y-3;
+
+      a {
+        @apply border-t-[1px] border-[#2b2e31] pb-3 pt-4  hover:text-slate-400;
+      }
+    }
+  }
+}

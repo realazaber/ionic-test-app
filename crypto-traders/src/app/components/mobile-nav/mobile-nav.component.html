@@ -1,0 +1,40 @@
+<ion-menu contentId="main-content">
+  <ion-content>
+    <ion-menu-toggle class="py-10 px-5 flex flex-col h-full">
+      <a class="mb-10 w-1/2" routerLink="/"
+        ><img src="/assets/images/home/buttons-title.svg"
+      /></a>
+      <a class="text-lg mb-5" routerLink="/">Home</a>
+      <a class="text-lg" routerLink="/hiring">Career</a>
+
+      <div class="mt-auto flex flex-col gap-3">
+        <a routerLink="/hiring">
+          <button class="btn btn-secondary w-full justify-between">
+            Membership <img src="/assets/images/green-arrow.svg" />
+          </button>
+        </a>
+        <a routerLink="/hiring">
+          <button class="btn btn-primary w-full justify-between">
+            Login <img src="/assets/images/blue-arrow.svg" />
+          </button>
+        </a>
+        <div class="flex text-white gap-x-1 text-[10px]">
+          <span>Privacy Policy</span>
+          <span>Refund Policy</span><span>Terms & Conditions</span>
+        </div>
+        <span class="text-accent text-xs">
+          © Copyright 2022 - Xtrades. All rights reserved.
+        </span>
+      </div>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+<div
+  class="ion-page"
+  id="main-content"
+  class="fixed top-5 left-5 sm:hidden sm:h-auto h-[5vh] z-50"
+>
+  <ion-menu-button class="text-white">
+    <img src="/assets/images/mobile-nav.svg" />
+  </ion-menu-button>
+</div>
