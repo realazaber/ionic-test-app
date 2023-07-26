@@ -1,0 +1,37 @@
+<h1 class="text-4xl py-3 w-4/5 mx-auto">We’re Hiring</h1>
+<ion-accordion-group class="w-4/5 mx-auto" expand="inset">
+  <ion-accordion *ngFor="let job of inputJobs">
+    <ion-item slot="header" color="light">
+      <ion-label>{{ job.title }}</ion-label>
+    </ion-item>
+    <div class="ion-padding bg-[#14171a] py-5" slot="content">
+      <!-- Content specific to the selected job -->
+      <p class="mb-5 px-5">{{ job.description }}</p>
+      <ul *ngIf="job.benefits" class="px-5">
+        <li *ngFor="let benefit of job.benefits">{{ benefit }}</li>
+      </ul>
+      <h2 class="my-3 px-5">
+        Skills Needed (Most Important to Least Important)
+      </h2>
+      <ul *ngIf="job.skills" class="px-5 pb-3">
+        <li *ngFor="let skill of job.skills">{{ skill }}</li>
+      </ul>
+      <div class="mt-auto">
+        <hr class="w-full border-[1px] border-[#2b2e31]" />
+        <div class="flex flex-col px-10 py-5 justify-between">
+          <span class="w-full md:text-left text-center md:w-3/5">
+            Contact us at
+            <a class="text-[#81EDBA] underline">kevin@xtrades.net</a> and
+            include information about your previous works and experience to set
+            up an interview.
+          </span>
+          <button
+            class="btn btn-primary flex justify-center items-center mt-3 md:mt-auto h-auto md:h-2/3 my-auto"
+          >
+            CONTACT US NOW
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>
