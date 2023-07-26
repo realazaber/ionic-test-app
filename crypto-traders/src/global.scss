@@ -25,12 +25,75 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+/* Font awesome */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-  .btn {
-    @apply px-5 py-3 rounded-lg border-2;
+  * {
+    @apply duration-300;
+  }
+
+  body {
+    @apply bg-black;
+
+    .btn {
+      @apply px-5 py-3 rounded-lg border-2 border-solid text-center flex items-center justify-center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(116.59deg, #81edb9 16.87%, #c2f0ed 86.01%),
+        linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.4),
+          rgba(255, 255, 255, 0.4)
+        );
+
+      @apply text-black;
+    }
+
+    .btn-secondary {
+      border-image: linear-gradient(225deg, #04e08a, #05cef2) 1;
+      border-radius: 0.375rem;
+
+      @apply bg-transparent;
+    }
+
+    a {
+      @apply hover:cursor-pointer;
+    }
+
+    h1,
+    h2 {
+      @apply font-bold;
+    }
+
+    h1 {
+      @apply text-xl;
+    }
+
+    h2 {
+      @apply text-base;
+    }
+
+    p,
+    span,
+    li {
+      @apply text-xs sm:text-sm text-[#b7b7b7];
+    }
+
+    li {
+      @apply list-disc list-inside my-1;
+    }
+
+    ul {
+      @apply flex flex-col justify-start items-start gap-y-3;
+
+      a {
+        @apply border-t-[1px] border-[#2b2e31] pb-3 pt-4  hover:text-slate-400;
+      }
+    }
   }
 }
