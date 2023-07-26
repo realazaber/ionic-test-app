@@ -1,24 +1,18 @@
 <ion-content
-  class="flex flex-col justify-center items-center w-full bg-black scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100"
+  class="flex flex-col justify-center items-center w-full h-full md:h-auto bg-black"
 >
-  <div class="w-4/5 mx-auto">
+  <!--Start Desktop-->
+  <div class="w-4/5 mx-auto md:block hidden">
     <h1 class="text-4xl py-3">We’re Hiring</h1>
     <div class="flex flex-row justify-center items-start bg-black pb-24">
       <div class="w-1/3">
         <ul>
           <a
-            (click)="selectedJob = 'Film Editor and Creator for Trading Content'"
+            *ngFor="let job of jobs"
+            (click)="selectJob(job)"
+            class="cursor-pointer"
           >
-            Film Editor and Creator for Trading Content
-          </a>
-          <a (click)="selectedJob = 'Full Stack Principal Software Developer'">
-            Full Stack Principal Software Developer
-          </a>
-
-          <a
-            (click)="selectedJob = 'Sr Principal Software Engineer - C++ Programmer'"
-          >
-            Sr Principal Software Engineer - C++ Programmer
+            {{ job.title }}
           </a>
         </ul>
       </div>
@@ -35,103 +29,20 @@
 
         <div class="py-8">
           <div class="px-10 w-4/5">
-            <!-- Content specific to each job title -->
-            <ng-container
-              *ngIf="selectedJob === 'Film Editor and Creator for Trading Content'"
-            >
-              <h1>
-                Hiring a Film Editor and Creator for <br />
-                Trading Content
-              </h1>
-              <p class="my-5">
-                We're looking to increase our exposure on social media, by
-                creating more
-                <br />
-                content (specifically Youtube Videos + shorts and Reels on
-                Instagram)
-              </p>
-              <ul>
-                <li>
-                  You will be provided with Living rent free with me <br />
-                  (Either in Los Angeles or New York,open to be discussed)
-                </li>
-                <li>Compensation is negotiable (DM to discuss)</li>
-                <li>Become a Partner</li>
-              </ul>
-              <h2 class="my-3">
-                Skills Needed (Most Important to Least Important)
-              </h2>
-              <ul>
-                <li>Short Form Video Editing</li>
-                <li>Lighting and Content Creation Setting Management</li>
-                <li>Videography</li>
-                <li>Photography</li>
-                <li>Longform Video Editing</li>
-              </ul>
-            </ng-container>
-
-            <ng-container
-              *ngIf="selectedJob === 'Full Stack Principal Software Developer'"
-            >
-              <h1>
-                Hiring a Full Stack Principal <br />
-                Software Developer
-              </h1>
-              <p class="my-5">
-                We're looking for a full stack developer to help make
-                <br />
-                our apps and sites.
-              </p>
-              <ul>
-                <li>
-                  You will be provided with Living rent free with me <br />
-                  (Either in Los Angeles or New York,open to be discussed)
-                </li>
-                <li>Compensation is negotiable (DM to discuss)</li>
-                <li>Become a Partner</li>
-              </ul>
-              <h2 class="my-3">
-                Skills Needed (Most Important to Least Important)
-              </h2>
-              <ul>
-                <li>Short Form Video Editing</li>
-                <li>Lighting and Content Creation Setting Management</li>
-                <li>Videography</li>
-                <li>Photography</li>
-                <li>Longform Video Editing</li>
-              </ul>
-            </ng-container>
-
-            <ng-container
-              *ngIf="selectedJob === 'Sr Principal Software Engineer - C++ Programmer'"
-            >
-              <h1>Sr Principal Software Engineer - C++ Programmer</h1>
-              <p class="my-5">
-                We're looking to increase our exposure on social media, by
-                creating more
-                <br />
-                content (specifically Youtube Videos + shorts and Reels on
-                Instagram)
-              </p>
-              <ul>
-                <li>
-                  You will be provided with Living rent free with me <br />
-                  (Either in Los Angeles or New York,open to be discussed)
-                </li>
-                <li>Compensation is negotiable (DM to discuss)</li>
-                <li>Become a Partner</li>
-              </ul>
-              <h2 class="my-3">
-                Skills Needed (Most Important to Least Important)
-              </h2>
-              <ul>
-                <li>Short Form Video Editing</li>
-                <li>Lighting and Content Creation Setting Management</li>
-                <li>Videography</li>
-                <li>Photography</li>
-                <li>Longform Video Editing</li>
-              </ul>
-            </ng-container>
+            <!-- Content specific to the selected job -->
+            <h1>{{ selectedJob?.title }}</h1>
+            <p class="my-5">{{ selectedJob?.description }}</p>
+            <ul *ngIf="selectedJob?.benefits">
+              <li *ngFor="let benefit of selectedJob.benefits">
+                {{ benefit }}
+              </li>
+            </ul>
+            <h2 class="my-3">
+              Skills Needed (Most Important to Least Important)
+            </h2>
+            <ul *ngIf="selectedJob?.skills">
+              <li *ngFor="let skill of selectedJob.skills">{{ skill }}</li>
+            </ul>
           </div>
 
           <!-- Common content at the bottom -->
@@ -153,8 +64,15 @@
       </div>
     </div>
   </div>
+  <!--End Desktop-->
+
+  <!--Start Mobile-->
+  <div class="px-5 mt-14 flex justify-center items-start">
+    <app-mobile-job [inputJobs]="jobs"></app-mobile-job>
+  </div>
+  <!--End Mobile-->
 </ion-content>
-<ion-footer class="bg-secondary">
+<ion-footer class="bg-secondary hidden sm:block">
   <div class="w-4/5 mx-auto py-5">
     <div class="flex flex-row gap-8">
       <div>
